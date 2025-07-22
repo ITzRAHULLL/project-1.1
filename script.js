@@ -1,27 +1,55 @@
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
+body {
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  background-color: #ffc0cb; /* Light pink */
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-style: italic; /* Italic font */
+}
 
-let clickCount = 0;
+.content {
+  text-align: center;
+  z-index: 2;
+}
 
-noBtn.addEventListener("mouseover", () => {
-  clickCount++;
-  const maxX = window.innerWidth - noBtn.offsetWidth;
-  const maxY = window.innerHeight - noBtn.offsetHeight;
+.question {
+  font-size: 2.7rem;
+  color: #d14e72;
+  animation: bounce 1s ease;
+  font-style: italic;
+}
 
-  const randomX = Math.random() * maxX;
-  const randomY = Math.random() * maxY;
+@keyframes bounce {
+  0%   { transform: translateY(-20px); }
+  50%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
 
-  noBtn.style.position = "absolute";
-  noBtn.style.left = `${randomX}px`;
-  noBtn.style.top = `${randomY}px`;
+.buttons {
+  margin-top: 30px;
+}
 
-  noBtn.style.transform = `scale(${1 - clickCount * 0.05})`;
-  boing.play();
-});
+button {
+  font-family: 'Pacifico', cursive;
+  font-style: italic;
+  font-size: 1.5rem;
+  margin: 0 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background-color: #ffb6c1;
+  color: white;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
 
-yesBtn.addEventListener("click", () => {
-  document.querySelector(".content").style.opacity = "0";
-  setTimeout(() => {
-    window.location.href = "thankyou.html";
-  }, 800);
-});
+button:hover {
+  background-color: #ffa3b1;
+  transform: scale(1.05);
+}

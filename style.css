@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  background: linear-gradient(to bottom right, #ffe5b4, #ffd1dc);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.content {
+  text-align: center;
+  z-index: 2;
+}
+
+.question {
+  font-size: 2.5rem;
+  color: #d14e72;
+  animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(-20px); }
+  50%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+button {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+  margin: 0 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background-color: #ffb6c1;
+  color: white;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffa3b1;
+  transform: scale(1.05);
+}
+
+.heart-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://media.giphy.com/media/fxsqOYnIMEefC/giphy.gif');
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 0;
+}

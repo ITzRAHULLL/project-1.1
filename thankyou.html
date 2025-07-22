@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to top right, #ffe5b4, #ffd1dc);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+      color: #d14e72;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: handwriting 2s steps(30, end) forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #d14e72;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    @keyframes handwriting {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .cat {
+      margin-top: 30px;
+    }
+
+    .cat img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Thankkk youuu! You made my heart smile 💓</h1>
+  <p>Here’s a little cutie for saying yes:</p>
+  <div class="cat">
+    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute Cat" />
+  </div>
+</body>
+</html>

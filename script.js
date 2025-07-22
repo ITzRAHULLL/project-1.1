@@ -1,6 +1,5 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-const boing = document.getElementById("boingSound");
 
 let clickCount = 0;
 

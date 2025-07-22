@@ -1,61 +1,32 @@
-body {
-  margin: 0;
-  font-family: 'Pacifico', cursive;
-  background: linear-gradient(to bottom right, #ffe5b4, #ffd1dc);
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const boing = document.getElementById("boingSound");
 
-.content {
-  text-align: center;
-  z-index: 2;
-}
+let clickCount = 0;
 
-.question {
-  font-size: 2.5rem;
-  color: #d14e72;
-  animation: bounce 1s ease;
-}
+noBtn.addEventListener("mouseenter", () => {
+  clickCount++;
+  const maxX = window.innerWidth - noBtn.offsetWidth;
+  const maxY = window.innerHeight - noBtn.offsetHeight;
 
-@keyframes bounce {
-  0%   { transform: translateY(-20px); }
-  50%  { transform: translateY(10px); }
-  100% { transform: translateY(0); }
-}
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
 
-.buttons {
-  margin-top: 30px;
-}
+  noBtn.style.transition = "top 0.2s, left 0.2s, transform 0.2s";
+  noBtn.style.position = "fixed";
+  noBtn.style.left = `${randomX}px`;
+  noBtn.style.top = `${randomY}px`;
 
-button {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.5rem;
-  margin: 0 20px;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 30px;
-  background-color: #ffb6c1;
-  color: white;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+  let scale = Math.max(0.6, 1 - clickCount * 0.05);
+  noBtn.style.transform = `scale(${scale})`;
 
-button:hover {
-  background-color: #ffa3b1;
-  transform: scale(1.05);
-}
+  if (boing) boing.play();
+});
 
-.heart-container::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  opacity: 0.1;
-  z-index: 0;
-}
+yesBtn.addEventListener("click", () => {
+  document.querySelector(".content").style.opacity = "0";
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 800);
+});
+
